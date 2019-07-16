@@ -14,6 +14,7 @@ public class Solution_最小的K个数 {
 		ArrayList<Integer> res = s.GetLeastNumbers_Solution(t, 10);
 		for (int i : res) {
 			System.out.println(i);
+			System.out.println();
 		}
 	}
 
