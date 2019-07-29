@@ -11,6 +11,29 @@ package offer;
 public class Solution_连续数组的最大和 {
 	public static int[][] ARRAY;
 
+	public int FindGreatestSumOfSubArray_demo(int[] array) {
+		int[][] arr = new int[array.length][array.length];
+		for (int i = 0; i < array.length; i++) {
+			int sum = 0;
+			for (int j = i; j < array.length; j++) {
+				sum += array[j];
+				arr[i][j] = sum;
+			}
+		}
+		int result = Integer.MIN_VALUE;
+		for (int i = 0; i < array.length; i++) {
+			for (int j = 0; j < array.length; j++) {
+				if (i > j) {
+					continue;
+				}
+				if (result <= arr[i][j]) {
+					result = arr[i][j];
+				}
+			}
+		}
+		return result;
+	}
+
 	public int FindGreatestSumOfSubArray(int[] array) {
 		ARRAY = new int[array.length][array.length];
 		for (int i = 0; i < array.length; i++) {
@@ -46,6 +69,6 @@ public class Solution_连续数组的最大和 {
 	public static void main(String[] args) {
 		Solution_连续数组的最大和 s = new Solution_连续数组的最大和();
 		int[] test = { 6, -3, -2, 7, -15, 1, 2, 2, 2, -4, 2, -8, 11, 32, 95, 62, -93, 12 };
-		System.out.println(s.FindGreatestSumOfSubArray(test));
+		System.out.println(s.FindGreatestSumOfSubArray_demo(test));
 	}
 }
