@@ -27,11 +27,3 @@ public class Solution_两个链表的第一个公共结点 {
     }
 }
 
-class ListNode {
-	int val;
-	ListNode next = null;
-
-	ListNode(int val) {
-		this.val = val;
-	}
-}

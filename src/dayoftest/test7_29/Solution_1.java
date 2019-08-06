@@ -7,7 +7,6 @@ import java.util.Scanner;
 
 public class Solution_1 {
 	public static void main(String[] args) {
-		int l = -1;
 		System.out.println(-1>>2);
 		Scanner input = new Scanner(System.in);
 		int n = input.nextInt();
