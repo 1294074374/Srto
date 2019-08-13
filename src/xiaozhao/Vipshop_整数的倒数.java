@@ -21,6 +21,10 @@ public class Vipshop_整数的倒数 {
 			res = res * 10 + x % 10;
 			x = x / 10;
 		}
-		System.out.println(flag ? "-" + res : res);
+		if(flag){
+            String temp = "-"+res;
+            res = Integer.valueOf(temp);
+        }
+		System.out.println(res);
 	}
 }
