@@ -14,9 +14,9 @@
  */
 package leetcode;
 
-public class Solution_最长回文子串_最长公共子串 {
+public class No05_Solution_最长回文子串_最长公共子串 {
 	public static void main(String[] args) {
-		Solution_最长回文子串_最长公共子串 s = new Solution_最长回文子串_最长公共子串();
+		No05_Solution_最长回文子串_最长公共子串 s = new No05_Solution_最长回文子串_最长公共子串();
 		System.out.println(s.longestPalindrome("cbbd"));
 	}
 

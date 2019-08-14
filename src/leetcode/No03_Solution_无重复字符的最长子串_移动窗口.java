@@ -22,9 +22,9 @@ package leetcode;
 
 import java.util.HashMap;
 
-public class Solution_无重复字符的最长子串_移动窗口 {
+public class No03_Solution_无重复字符的最长子串_移动窗口 {
 	public static void main(String[] args) {
-		Solution_无重复字符的最长子串_移动窗口 s = new Solution_无重复字符的最长子串_移动窗口();
+		No03_Solution_无重复字符的最长子串_移动窗口 s = new No03_Solution_无重复字符的最长子串_移动窗口();
 		System.out.println(s.lengthOfLongestSubstring("pwwkew"));
 	}
 

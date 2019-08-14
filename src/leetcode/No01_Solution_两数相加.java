@@ -19,7 +19,7 @@ package leetcode;
 
 import java.util.ArrayList;
 
-public class Solution_两数相加 {
+public class No01_Solution_两数相加 {
 	public static void main(String[] args) {
 //		ListNode l11 = new ListNode(2);
 //		ListNode l12 = new ListNode(4);
@@ -53,7 +53,7 @@ public class Solution_两数相加 {
 		l27.next = l28;
 		l28.next = l29;
 		l29.next = l30;
-		Solution_两数相加 s = new Solution_两数相加();
+		No01_Solution_两数相加 s = new No01_Solution_两数相加();
 		s.addTwoNumbers(l11, l21);
 	}
 

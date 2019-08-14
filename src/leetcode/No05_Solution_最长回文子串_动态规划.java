@@ -16,9 +16,9 @@ package leetcode;
 
 import java.util.ArrayList;
 
-public class Solution_最长回文子串_暴力法 {
+public class No05_Solution_最长回文子串_动态规划 {
 	public static void main(String[] args) {
-		Solution_最长回文子串_暴力法 s = new Solution_最长回文子串_暴力法();
+		No05_Solution_最长回文子串_动态规划 s = new No05_Solution_最长回文子串_动态规划();
 		System.out.println(s.longestPalindrome("babad"));
 	}
 	public String longestPalindrome(String s) {

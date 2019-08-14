@@ -20,9 +20,9 @@
  */
 package leetcode;
 
-public class Solution_无重复字符的最长子串 {
+public class No03_Solution_无重复字符的最长子串 {
 	public static void main(String[] args) {
-		Solution_无重复字符的最长子串 s = new Solution_无重复字符的最长子串();
+		No03_Solution_无重复字符的最长子串 s = new No03_Solution_无重复字符的最长子串();
 		System.out.println(s.lengthOfLongestSubstring("au"));
 	}
 

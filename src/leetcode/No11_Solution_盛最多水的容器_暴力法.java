@@ -22,9 +22,9 @@
 
 package leetcode;
 
-public class Solution_盛最多水的容器_暴力法 {
+public class No11_Solution_盛最多水的容器_暴力法 {
 	public static void main(String[] args) {
-		Solution_盛最多水的容器_暴力法 s = new Solution_盛最多水的容器_暴力法();
+		No11_Solution_盛最多水的容器_暴力法 s = new No11_Solution_盛最多水的容器_暴力法();
 		int[] height = { 1, 8, 6, 2, 5, 4, 8, 3, 7 };
 		System.out.println(s.maxArea(height));
 	}

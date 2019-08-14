@@ -16,9 +16,9 @@
  */
 package leetcode;
 
-public class Solution_数字反转 {
+public class No07_Solution_数字反转 {
 	public static void main(String[] args) {
-		Solution_数字反转  s = new Solution_数字反转 ();
+		No07_Solution_数字反转  s = new No07_Solution_数字反转 ();
 		System.out.println(s.reverse(-123));
 	}
 	public int reverse(int x) {
