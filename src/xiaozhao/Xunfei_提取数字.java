@@ -9,6 +9,7 @@ public class Xunfei_ÌáÈ¡Êı×Ö {
 		Scanner in = new Scanner(System.in);
 		String str = in.nextLine();
 		findNumber(str);
+		in.close();
 	}
 	
 	static void findNumber(String str) {
