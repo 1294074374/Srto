@@ -16,11 +16,11 @@
 package leetcode;
 
 public class No37_Solution_解数独 {
-	char[][] board={ { '5', '3', '.', '.', '7', '.', '.', '.', '.' },
-		{ '6', '.', '.', '1', '9', '5', '.', '.', '.' }, { '.', '9', '8', '.', '.', '.', '.', '6', '.' },
-		{ '8', '.', '.', '.', '6', '.', '.', '.', '3' }, { '4', '.', '.', '8', '.', '3', '.', '.', '1' },
-		{ '7', '.', '.', '.', '2', '.', '.', '.', '6' }, { '.', '6', '.', '.', '.', '.', '2', '8', '.' },
-		{ '.', '.', '.', '4', '1', '9', '.', '.', '5' }, { '.', '.', '.', '.', '8', '.', '.', '7', '9' }, };;
+	char[][] board = { { '5', '3', '.', '.', '7', '.', '.', '.', '.' }, { '6', '.', '.', '1', '9', '5', '.', '.', '.' },
+			{ '.', '9', '8', '.', '.', '.', '.', '6', '.' }, { '8', '.', '.', '.', '6', '.', '.', '.', '3' },
+			{ '4', '.', '.', '8', '.', '3', '.', '.', '1' }, { '7', '.', '.', '.', '2', '.', '.', '.', '6' },
+			{ '.', '6', '.', '.', '.', '.', '2', '8', '.' }, { '.', '.', '.', '4', '1', '9', '.', '.', '5' },
+			{ '.', '.', '.', '.', '8', '.', '.', '7', '9' }, };;
 
 	public void solveSudoku(char[][] board) {
 		this.board = board;
@@ -31,7 +31,12 @@ public class No37_Solution_解数独 {
 		if (x == 8 && y == 9) {
 			// 已经成功了，打印数组即可
 			System.out.println("获取正确解");
-			
+			for (int i = 0; i < 9; i++) {
+				for (int j = 0; j < 9; j++) {
+					System.out.print(board[i][j] + " ");
+				}
+				System.out.println();
+			}
 			return;
 		}
 
@@ -56,11 +61,11 @@ public class No37_Solution_解数独 {
 
 	private boolean check(char temp, int x, int y) {
 		for (int i = 0; i < 9; i++) {
-			if (board[x][i] == temp||board[i][y] == temp) {
+			if (board[x][i] == temp || board[i][y] == temp) {
 				return false;
 			}
 		}
-		
+
 		int row = x / 3;
 		int col = y / 3;
 
@@ -75,9 +80,9 @@ public class No37_Solution_解数独 {
 	}
 
 	public static void main(String[] args) {
-		
+
 		No37_Solution_解数独 n = new No37_Solution_解数独();
 		n.solveSudoku(n.board);
-		
+
 	}
 }
