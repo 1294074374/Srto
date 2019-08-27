@@ -1,4 +1,4 @@
-package leetcode.no300_499;
+package leetcode.no300_399;
 
 public class No367_Solution_有效的完全平方数 {
 	public boolean isPerfectSquare(int num) {
