@@ -1,4 +1,4 @@
-package leetcode.no10_199;
+package leetcode.no100_199;
 
 public class No174_Solution_地下城游戏 {
 	public int calculateMinimumHP(int[][] dungeon) {
