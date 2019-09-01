@@ -1,5 +1,7 @@
 package leetcode.no001_099;
 
+import java.util.Scanner;
+
 public class No67_Solution_二进制求和 {
 	public String addBinary(String a, String b) {
 		StringBuffer strBuffer = new StringBuffer();
@@ -32,8 +34,13 @@ public class No67_Solution_二进制求和 {
 
 	public static void main(String[] args) {
 		No67_Solution_二进制求和 n = new No67_Solution_二进制求和();
+		Scanner sc = new Scanner(System.in);
+		String num1 = sc.nextLine();
+		String num2 = sc.nextLine();
+		System.out.println(n.addBinary(num1, num2));
 		String a = "1010";
 		String b = "1011";
 		System.out.println(n.addBinary(a, b));
+		sc.close();
 	}
 }

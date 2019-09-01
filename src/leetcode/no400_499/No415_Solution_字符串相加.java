@@ -1,5 +1,7 @@
 package leetcode.no400_499;
 
+import java.util.Scanner;
+
 public class No415_Solution_字符串相加 {
 	public String addStrings(String num1, String num2) {
 		int len1 = num1.length() - 1;
@@ -29,5 +31,12 @@ public class No415_Solution_字符串相加 {
 			strBuffer.append("1");
 		}
 		return strBuffer.reverse().toString();
+	}
+
+	public static void main(String[] args) {
+		No415_Solution_字符串相加 n = new No415_Solution_字符串相加();
+		Scanner sc = new Scanner(System.in);
+		System.out.println(n.addStrings("1101", "1100"));
+		sc.close();
 	}
 }
