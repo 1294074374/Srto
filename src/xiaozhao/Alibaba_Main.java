@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Alibaba_Main {
 
 	public static void main(String[] args) {
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 
 		String line = scanner.nextLine();
@@ -22,9 +23,9 @@ public class Alibaba_Main {
 				area[i][j++] = Integer.parseInt(num);
 			}
 		}
-
+		 scanner.close();
 		int minimumTimeCost = getMinimumTimeCost(n, area);
-		scanner.close();
+		
 		System.out.println(minimumTimeCost);
 	}
 

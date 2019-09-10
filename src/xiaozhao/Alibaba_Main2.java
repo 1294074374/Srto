@@ -1,10 +1,6 @@
 package xiaozhao;
 
-import java.io.*;
-import java.util.*;
-import java.text.*;
-import java.math.*;
-import java.util.regex.*;
+import java.util.Scanner;
 
 public class Alibaba_Main2 {
 
@@ -50,5 +46,6 @@ public class Alibaba_Main2 {
 
 		res = getIndexAndLongest(_users);
 		System.out.println(res);
+		in.close();
 	}
 }

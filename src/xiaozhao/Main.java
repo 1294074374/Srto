@@ -20,7 +20,7 @@ public class Main {
 			int b = sc.nextInt();
 			System.out.println(dp[b] - dp[a - 1]);
 		}
-
+		sc.close();
 	}
 
 }
