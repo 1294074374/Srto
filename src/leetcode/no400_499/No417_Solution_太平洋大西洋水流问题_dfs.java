@@ -35,61 +35,110 @@ fs
 package leetcode.no400_499;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class No417_Solution_太平洋大西洋水流问题_dfs {
 	List<List<Integer>> resList = new ArrayList<List<Integer>>();
+	Set<List<Integer>> resSet = new HashSet<List<Integer>>();
+	Set<List<Integer>> pesSet = new HashSet<List<Integer>>();
 	int[][] Atlantic;
 	int[][] Pacific;
 
 	public List<List<Integer>> pacificAtlantic(int[][] matrix) {
+		if (matrix.length == 0)
+			return resList;
 		int m = matrix.length;
 		int n = matrix[0].length;
-		Atlantic = new int[m + 1][n + 1];
-		Pacific = new int[m + 1][n + 1];
-		for (int i = 1; i < m; i++) {
-			dfsPacificUp(1, i);
+		Atlantic = new int[m][n];
+		Pacific = new int[m][n];
+		for (int i = 0; i < m; i++) {
+			for (int j = 0; j < n; j++) {
+				dfsAtlantic(matrix, Atlantic, i, j, i, j);
+			}
 		}
-
-		dfsAtlantic(0, n - 1);
-		// 初始�??
-//		for (int i = 0; i < m; i++) {
-//			dpAtlantic[i][n - 1] = 1;
-//			dpPacific[i][0] = 1;
-//		}
-//		for (int j = 0; j < n; j++) {
-//			dpAtlantic[m - 1][j] = 1;
-//			dpPacific[0][j] = 1;
-//		}
-//		for (int i = 0; i < m; i++) {
-//			for (int j = 0; j < n; j++) {
-//				System.out.print(dpAtlantic[i][j] + " ");
-//			}
-//			System.out.println();
-//		}
-//		System.out.println();
-//		for (int i = 0; i < m; i++) {
-//			for (int j = 0; j < n; j++) {
-//				System.out.print(dpPacific[i][j] + " ");
-//			}
-//			System.out.println();
-//		}
-
+		for (List<Integer> temp : resSet) {
+			int i = temp.get(0);
+			int j = temp.get(1);
+			dfsPacificUp(matrix, Atlantic, i, j, i, j);
+		}
+		for (List<Integer> temp : pesSet) {
+			resList.add(temp);
+		}
 		return resList;
 	}
 
-	private void dfsAtlantic(int x, int y) {
-		if (x <= 0 || x >= Atlantic.length || y <= 0 || y <= Atlantic[0].length) {
+	private void dfsAtlantic(int[][] matrix, int[][] Atlantic, int x, int y, int i, int j) {
+		if (Atlantic[x][y] == -1) {
 			return;
+		}
+		if (x < 0 || y < 0 || x - 1 < 0 || y - 1 < 0) {
+			// 到达太平洋
+			List<Integer> list = new ArrayList<Integer>();
+			list.add(i);
+			list.add(j);
+			resSet.add(list);
+			return;
+		}
+		if (matrix[x][y] >= matrix[x - 1][y] && Atlantic[x - 1][y] != -1) {
+			Atlantic[x][y] = -1;
+			dfsAtlantic(matrix, Atlantic, x - 1, y, i, j);
+			Atlantic[x][y] = matrix[x][y];
+		}
+		if (matrix[x][y] >= matrix[x][y - 1] && Atlantic[x][y - 1] != -1) {
+			Atlantic[x][y] = -1;
+			dfsAtlantic(matrix, Atlantic, x, y - 1, i, j);
+			Atlantic[x][y] = matrix[x][y];
+		}
+		if (y + 1 > matrix[0].length && matrix[x][y] >= matrix[x][y + 1] && Atlantic[x][y + 1] != -1) {
+			Atlantic[x][y] = -1;
+			dfsAtlantic(matrix, Atlantic, x, y + 1, i, j);
+			Atlantic[x][y] = matrix[x][y];
+		}
+		if (x + 1 > matrix.length && matrix[x][y] >= matrix[x + 1][y] && Atlantic[x + 1][y] != -1) {
+			Atlantic[x][y] = -1;
+			dfsAtlantic(matrix, Atlantic, x + 1, y, i, j);
+			Atlantic[x][y] = matrix[x][y];
 		}
 
 	}
 
-	private void dfsPacificUp(int x, int y) {
-		if (x <= 0 || x >= Pacific.length || y <= 0 || y <= Pacific[0].length) {
+	private void dfsPacificUp(int[][] matrix, int[][] Pacific, int x, int y, int i, int j) {
+		if (Atlantic[x][y] == -1) {
 			return;
 		}
-		
+		int n = matrix.length;
+		int m = matrix[0].length;
+		if (x + 1 >= n || y + 1 >= m) {
+			// 到达大西洋
+			List<Integer> list = new ArrayList<Integer>();
+			list.add(i);
+			list.add(j);
+			pesSet.add(list);
+			return;
+		}
+		if (matrix[x][y] >= matrix[x + 1][y]) {
+			Pacific[x][y] = -1;
+			dfsPacificUp(matrix, Pacific, x + 1, y, i, j);
+			Pacific[x][y] = matrix[x][y];
+		}
+		if (matrix[x][y] >= matrix[x][y + 1]) {
+			Pacific[x][y] = -1;
+			dfsPacificUp(matrix, Pacific, x, y + 1, i, j);
+			Pacific[x][y] = matrix[x][y];
+		}
+		if (y - 1 > 0 && matrix[x][y] >= matrix[x][y - 1]) {
+			Pacific[x][y] = -1;
+			dfsPacificUp(matrix, Pacific, x, y - 1, i, j);
+			Pacific[x][y] = matrix[x][y];
+		}
+		if (x - 1 > 0 && matrix[x][y] >= matrix[x - 1][y]) {
+			Pacific[x][y] = -1;
+			dfsPacificUp(matrix, Pacific, x - 1, y, i, j);
+			Pacific[x][y] = matrix[x][y];
+		}
+
 	}
 
 	public static void main(String[] args) {
